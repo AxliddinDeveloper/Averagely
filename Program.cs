@@ -17,7 +17,7 @@ namespace AVERAGELY
             inputOutput.Inputoutput();
             int choose = int.Parse(Console.ReadLine());
             Console.Clear();
-            decimal score = 0;
+            
             switch (choose)
             {
                 case 1:
