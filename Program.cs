@@ -1,43 +1,48 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using AVERAGELY.Classes;
 
 namespace AVERAGELY
 {
-    public  class Program
+    public class Program
     {
         public static void Main(string[] args)
         {
-            QuarterlyScore quarterlyScore= new QuarterlyScore();
-            AnnualScore annualScore= new AnnualScore();
+            QuarterlyScore quarterlyScore = new QuarterlyScore();
+            AnnualScore annualScore = new AnnualScore();
             InputOutput inputOutput = new InputOutput();
             inputOutput.Inputoutput();
-            int choose = int.Parse(Console.ReadLine());
-            Console.Clear();
-            
-            switch (choose)
+            try
             {
-                case 1:
-                    quarterlyScore.CalculateTheQuarterScore();
-                break;
+                int choose = int.Parse(Console.ReadLine());
+                Console.Clear();
 
-                case 2:
-                    annualScore.CalculateTheAnnualScore();
-                break;
+                switch (choose)
+                {
+                    case 1:
+                        quarterlyScore.CalculateTheQuarterScore();
+                        break;
 
-                case 3:
-                    Console.WriteLine("\nThank you for using our service!\n");
-                break;
+                    case 2:
+                        annualScore.CalculateTheAnnualScore();
+                        break;
 
-                default:
-                    Console.WriteLine("you have defaulted!");
-                break;
+                    case 3:
+                        Console.WriteLine("\nThank you for using our service!\n");
+                        break;
+
+                    default:
+                        Console.WriteLine("You have defaulted!");
+                        break;
+                }
             }
-            
-
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid input! Please enter a valid number.");
+            }
         }
     }
 }
+
+
+

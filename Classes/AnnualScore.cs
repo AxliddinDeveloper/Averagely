@@ -1,31 +1,33 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace AVERAGELY.Classes
 {
     public class AnnualScore
     {
         public void CalculateTheAnnualScore()
         {
-            decimal score = 0;
-
-            for (int iteration = 1; iteration <= 4; iteration++)
+            try
             {
-                Console.Write("enter your quarterly grades: ");
-                score += decimal.Parse(Console.ReadLine());
-            }
-            
-            Console.WriteLine($"your annual score: {score/4}\n");
+                decimal score = 0;
 
-            if (score/4 >= 4)
-                Console.WriteLine("\tGread!\n");
-            else if (score/4 < 4 && score/4 >= 3)
-                Console.WriteLine("\tsatisfactory!\n");
-            else
-                Console.WriteLine("\tunsatisfied!\n");
+                for (int iteration = 1; iteration <= 4; iteration++)
+                {
+                    Console.Write("Enter your quarterly grades: ");
+                    score += decimal.Parse(Console.ReadLine());
+                }
+
+                Console.WriteLine($"Your annual score: {score / 4}\n");
+
+                if (score / 4 >= 4)
+                    Console.WriteLine("\tGreat!\n");
+                else if (score / 4 < 4 && score / 4 >= 3)
+                    Console.WriteLine("\tSatisfactory!\n");
+                else
+                    Console.WriteLine("\tUnsatisfied!\n");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid input! Please enter a valid number.");
+            }
         }
     }
 }
+
